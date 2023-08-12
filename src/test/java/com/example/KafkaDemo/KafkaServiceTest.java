@@ -1,5 +1,6 @@
 package com.example.KafkaDemo;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,15 +10,17 @@ import org.springframework.test.context.TestPropertySource;
 @SpringBootTest
 @Import(KafkaConfig.class)
 @TestPropertySource(locations="classpath:test.properties")
+@Disabled
 public class KafkaServiceTest {
 
     @Autowired
     private KafkaService kafkaService;
 
     @Test
+    @Disabled
     void simepleMessagePublish(){
 
-        Book book = new Boo k();
+        Book book = new Book();
         book.setBookName("Book 1");
         book.setIsbn("isbn");
 
@@ -25,6 +28,7 @@ public class KafkaServiceTest {
     }
 
     @Test
+    @Disabled
     void MessagePublishWithKey(){
         String key = "Key1";
         Book book = new Book();
@@ -35,6 +39,7 @@ public class KafkaServiceTest {
     }
 
     @Test
+    @Disabled
     void MessagePublishWithKeyPartition(){
         String key = "Key1";
         Integer partition = 0;

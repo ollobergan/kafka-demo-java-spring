@@ -21,7 +21,7 @@ public class KafkaProducerController {
     }
 
     @PostMapping("/publish-with-key/{key}/partition/{partition}")
-    public String messagePublisher(@RequestBody Book book,@PathVariable("key") String key, @PathVariable("partition") Integer partition){
+    public String messagePublisherWithKeyPartition(@RequestBody Book book,@PathVariable("key") String key, @PathVariable("partition") Integer partition){
         kafkaService.publish(book, key, partition);
         return "Message successfully published!";
     }
