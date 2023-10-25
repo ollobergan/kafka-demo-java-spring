@@ -16,6 +16,9 @@ public class KafkaServiceTest {
     @Autowired
     private KafkaService kafkaService;
 
+    @Autowired
+    private KafkaService22 kafkaService2;
+
     @Test
     @Disabled
     void simepleMessagePublish(){
@@ -48,5 +51,18 @@ public class KafkaServiceTest {
         book.setIsbn("isbn");
 
         kafkaService.publish(book, key, partition);
+    }
+
+    @Test
+    @Disabled
+    void testKafkaPublish(){
+
+        KafkaTest test = new KafkaTest();
+        test.setTin("200523221");
+        test.setSana("2023-08-23");
+        test.setYil(2023);
+        test.setOy(8);
+
+        kafkaService2.publish(test);
     }
 }
